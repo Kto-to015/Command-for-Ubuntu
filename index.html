@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale-1.0">
+        <title>Стартовые команды для Ubuntu</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="fonts/style-fonts.css">
+        <style>
+            * {
+                font-family: Arial, 'Montserrat-Regular', 'Montserrat-SemiBold';
+                margin: 0;
+                padding: 0;
+            }
+            pre {
+                margin-left: -150px;
+            }
+            li {
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main1">
+            <div class="block1">
+                <div class="headline">
+                    <h2>Стартовые команды для Ubuntu</h2>
+                </div>
+                <div class="info_block1">
+                    <ol>
+                        <li><span style="font-weight: 600; color: rgb(210, 30, 30);">sudo apt update && sudo apt upgrade</span> - <i>полное обновление системы</i></li>
+                        <li><span style="font-weight: 600; color: rgb(30, 123, 210);">sudo apt-get install gdebi</span> - <i>установка установщика .deb пакетов</i></li>
+                        <li><span style="font-weight: 600; color: rgb(30, 123, 210);">sudo apt install neofetch</span> (ну, вообще это не обязательно)</li>
+                        <li><span style="font-weight: 600; color: rgb(30, 123, 210);">sudo apt install pavucontrol</span> - <i>установка граф оболчки на аудио драйвер</i></li>
+                    </ol>
+                </div>
+            </div>
+            <div class="main2">
+                <div class="block2">
+                    <div class="headline2">
+                        <h2>Установка кодеков в Яндекс Браузер</h2>
+                        <a href="https://linux.how2shout.com/installing-gstreamer-on-ubuntu-22-04-or-20-04-lts-linux" target="_blank">https://linux.how2shout.com/installing-gstreamer-on-ubuntu-22-04-or-20-04-lts-linux</a><br>
+                        <a href="https://u-pov.ru/instructions/aleqs/471" target="_blank">https://u-pov.ru/instructions/aleqs/471</a>
+                    </div>
+                    <div class="info_block2">
+                        <ol>
+                            <li>sudo snap install chromium-ffmpeg (в Ubuntu также можно использовать sudo apt install chromium-codecs-ffmpeg)</li>
+                            <li>sudo cp /snap/chromium-ffmpeg/15/chromium-ffmpeg-95241/chromium-ffmpeg/libffmpeg.so /opt/yandex/browser-beta/lib/</li>
+                            <li>sudo apt install snapd</li>
+                            <li>sudo ln -s /var/lib/snapd/snap /snap (команда не сработала)</li>
+                            <li>sudo apt update && sudo apt upgrade</li>
+                            <li>apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio</li>
+                            <li>gst-inspect-1.0 --version</li>
+                            <li>nano video.py</li>
+                            <li>
+                                <pre>
+                                    <code>
+                                        import gi
+                                        gi.require_version('Gst', '1.0')
+                                        from gi.repository import Gst
+
+                                        def main():
+                                            # Initialize GStreamer
+                                            Gst.init(None)
+
+                                            # Create a pipeline
+                                            pipeline = Gst.parse_launch("videotestsrc ! autovideosink")
+
+                                            # Start the pipeline
+                                            pipeline.set_state(Gst.State.PLAYING)
+
+                                            # Wait for EOS (End-of-Stream) or error
+                                            bus = pipeline.get_bus()
+                                            msg = bus.timed_pop_filtered(Gst.CLOCK_TIME_NONE, Gst.MessageType.ERROR | Gst.MessageType.EOS)
+
+                                            # Stop the pipeline
+                                            pipeline.set_state(Gst.State.NULL)
+
+                                        if __name__ == '__main__':
+                                            main()
+                                    </code>
+                                </pre>
+                            </li>
+                            <p style="margin-bottom: 10px; font-weight: 600; text-decoration: underline;">Save the file by pressing Ctlr+X and then type Y after that hit the Enter key</p>
+                            <li>python3 video.py</li>
+                            <li>Всё!)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

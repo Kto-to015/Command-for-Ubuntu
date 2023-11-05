@@ -1,0 +1,43 @@
+body, .main1, .block1, .headline, .info_block1, .block2, .headline2, .info_block2 {
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.block1 {
+    margin-top: 30px;
+    text-align: center;
+    width: 900px;
+    border: 2px solid rgba(0, 0, 0, 0.253);
+    border-radius: 12px;
+    box-shadow: 0 0 15px 10px #0000001c;
+    margin-bottom: 50px;
+}
+.headline {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.info_block1 {
+    text-align: left;
+    margin-left: 32px;
+    margin-bottom: 5px;
+}
+
+.block2 {
+    margin-top: 30px;
+    text-align: center;
+    width: 900px;
+    border: 2px solid rgba(0, 0, 0, 0.253);
+    border-radius: 12px;
+    box-shadow: 0 0 15px 10px #0000001c;
+    margin-bottom: 30px;
+}
+.headline2 {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.info_block2 {
+    text-align: left;
+    margin-left: 32px;
+    margin-bottom: 5px;
+}
