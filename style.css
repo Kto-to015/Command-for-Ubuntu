@@ -4,6 +4,7 @@ body, .main1, .block1, .headline, .info_block1, .block2, .headline2, .info_block
 }
 .block1 {
     margin-top: 30px;
+    margin-left: 600px;
     text-align: center;
     width: 900px;
     border: 2px solid rgba(0, 0, 0, 0.253);
@@ -24,6 +25,7 @@ body, .main1, .block1, .headline, .info_block1, .block2, .headline2, .info_block
 
 .block2 {
     margin-top: 30px;
+    margin-left: 600px;
     text-align: center;
     width: 900px;
     border: 2px solid rgba(0, 0, 0, 0.253);
@@ -40,4 +42,19 @@ body, .main1, .block1, .headline, .info_block1, .block2, .headline2, .info_block
     text-align: left;
     margin-left: 32px;
     margin-bottom: 5px;
+}
+.vk-comments {
+    margin-top: -1180px;
+    margin-left: 30px;
+    /* margin-bottom: 50px; */
+}
+@media (max-width: 1000px) {
+    .vk-comments {
+        margin-top: 20px;
+        margin-left: 40px;
+        /* margin-bottom: 100px; */
+    }
+    .block1, .block2 {
+        margin-left: auto;
+    }
 }
